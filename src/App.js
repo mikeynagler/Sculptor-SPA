@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import SideDrawer from './components/SideDrawer/SideDrawer'
+import Backdrop from './components/Backdrop/Backdrop'
+import Home from './components/MainComponents/Home/Home'
+import About from './components/MainComponents/About/About'
+import UpcomingEvents from './components/MainComponents/UpcomingEvents/UpcomingEvents'
+import Contact from './components/MainComponents/Contact/Contact'
+import Gallery from './components/MainComponents/Gallery/Gallery'
+import Media from './components/MainComponents/Media/Media'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    drawerOpen: false
+  };
+  onDrawerToggle = () => {
+    this.setState((prevState) => {
+      return {drawerOpen: !prevState.drawerOpen}
+    });
+  }
+
+  onBackdropClick = () => {
+    this.setState({drawerOpen: false});
+  }
+  render() {
+    let backdrop;
+    if(this.state.drawerOpen){
+      backdrop = <Backdrop click={this.onBackdropClick}/>
+    }
+    
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <SideDrawer show={this.state.drawerOpen}/>
+          {backdrop}
+          <Navbar onDrawerToggle={this.onDrawerToggle}/>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/about" exact component={About}></Route>
+          <Route path="/upcomingevents" exact component={UpcomingEvents}></Route>
+          <Route path="/media" exact component={Media}></Route>
+          <Route path="/gallery" exact component={Gallery}></Route>
+          <Route path="/contact" exact component={Contact}></Route>
+        </BrowserRouter>
+      </div>
+    );
+  };
 }
 
 export default App;
