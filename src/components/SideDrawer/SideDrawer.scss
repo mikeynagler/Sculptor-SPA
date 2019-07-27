@@ -13,9 +13,57 @@
     width: 70%;
     z-index: 200;
     transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.5s ease-in 0.08s;
     &.show {
         transform: translateX(0);
+        transition: transform 0.3s ease-out;
+    }
+    .toggle-button__wrapper {
+        display: flex;
+        flex-direction: row;
+        padding: 0 1em;
+        height: 2.5rem;
+        align-items: center;
+        .toggle-button__button {
+            @media (min-width: 600px) {
+                display: none;
+            }
+            height: 1.5rem;
+            width: 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            visibility: visible;
+            &:focus{
+                outline: none;
+            }
+            .toggle-button__line {
+                width: 1.5rem;
+                height: 2px;
+                background: black;
+                opacity: 1;
+                transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+                transform:  translateY(0) rotate(0deg);                
+                &.toggle-button__first-line {
+                    transform:  translateY(8px) rotate(45deg);
+                    transition: transform 0.2s ease-out 0.2s;
+                }
+                &.toggle-button__second-line {
+                    opacity: 0;
+                    transition: opacity 0.2s ease-out;
+                }
+                &.toggle-button__third-line {
+                    transform:  translateY(-8px) rotate(-45deg);
+                    transition: transform 0.2s ease-out 0.2s;
+                }
+            }
+        }
     }
     .sidedrawer__link-items {
         list-style: none;

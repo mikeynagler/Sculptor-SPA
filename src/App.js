@@ -24,6 +24,10 @@ class App extends React.Component {
   onBackdropClick = () => {
     this.setState({drawerOpen: false});
   }
+
+  onXClick = () => {
+    this.setState({drawerOpen: false});
+  }
   render() {
     let backdrop;
     if(this.state.drawerOpen){
@@ -33,7 +37,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <SideDrawer show={this.state.drawerOpen}/>
+          <SideDrawer show={this.state.drawerOpen} onXClick={this.onXClick}/>
           {backdrop}
           <Navbar onDrawerToggle={this.onDrawerToggle}/>
           <Route path="/" exact component={Home}></Route>

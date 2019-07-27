@@ -1,8 +1,8 @@
-.toggle-button {
+.toggle-button__button {
     @media (min-width: 600px) {
         display: none;
     }
-    height: 1.2rem;
+    height: 1.5rem;
     width: 1.5rem;
     background: transparent;
     border: none;
@@ -12,6 +12,7 @@
     justify-content: space-around;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
     &:focus{
         outline: none;
     }

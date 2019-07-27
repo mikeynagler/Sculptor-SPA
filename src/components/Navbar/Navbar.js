@@ -10,7 +10,6 @@ const navbar = props => {
                 <DrawerToggleButton click={props.onDrawerToggle}/>
                 </div>
                 <div className="navbar__logo"><Link className="navbar__link" to="/">Home</Link></div>
-                <div className="spacer"></div>
                 <div className="navbar__navigation-items">
                     <ul>
                         <li>
@@ -26,7 +25,7 @@ const navbar = props => {
                             <Link className="navbar__link" to="/upcomingevents">Upcoming Events</Link>
                         </li>
                         <li>
-                            <Link className="navbar__link" top="/contact">Contact</Link>
+                            <Link className="navbar__link" to="/contact">Contact</Link>
                         </li>
                     </ul>
                 </div>

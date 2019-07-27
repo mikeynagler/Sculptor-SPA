@@ -4,24 +4,35 @@
     left: 0;
     width: 100%;
     background: white;
-    border-bottom: 1px solid black;
+    height: 15%;
     .navbar__navigation {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        @media (max-width: 600px) {
+            flex-direction: row;
+        }
         align-items: center;
         padding: 0 1rem;
-        .navbar__logo .navbar__link {
-            text-decoration: none;
-            font-size: 2rem;
-            margin-left: 1rem;
-            @media (min-width: 600px) {
-                margin-left: 0;
+        height: 100%;
+        .navbar__logo{
+            flex: 1.5;
+            display: flex;
+            align-items: center;
+            
+            .navbar__link {
+                text-decoration: none;
+                color: #121212;
+                font-size: 2rem;
+                margin-left: 1rem;
+                @media (min-width: 600px) {
+                    margin-left: 0;
+                }
             }
         }
-        .spacer {
-            flex: 1;
-        }
         .navbar__navigation-items{
+            flex: 1;
+            display: flex;
+            align-items: center;
             @media (max-width: 600px) {
                 display: none;
             }
@@ -32,10 +43,36 @@
                 display: flex;
                 flex-direction: row;
                 list-style: none;
+                height: 100%;
                 .navbar__link {
-                    color: black;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    color: #AAAAAA;
                     text-decoration: none;
                     padding: 0.5rem;
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 2px;
+                        background: #121212;
+                        transition: width .3s;
+                    }
+                    &:hover {
+                        color: #121212;
+                        &:after {
+                            width: 100%;
+                        }
+                    }
+                    &:active {
+                        color: #BDBDBD;
+                        &:after {
+                            background: #BDBDBD;
+                        }
+                    }
                 }
             }
         }
