@@ -1,0 +1,88 @@
+.about {
+    width: 70%;
+    margin: 5vh auto;
+    .about-container{
+        opacity: 0;
+        transition: opacity 3s;
+        display: flex;
+        flex-direction: row;
+        @media (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        height: 100%;
+        &.show{
+            opacity: 1;
+            max-height: 50vh;
+            height: 50vh;
+            .about-container__img {
+                flex: 50%;
+                display: flex;
+                justify-content: center;
+                img {
+                    height: 100%;
+                    width: 36vh;
+                }
+            }
+            .about-container__data{
+                flex: 50%;
+                overflow: hidden;
+                .title{
+                    font-family: 'Goudy Bookletter 1911', serif;
+                    font-size: 26px;
+                }
+                .about-container__button-wrapper{
+                    display: flex;
+                    flex-direction: row;
+                    button {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        color: #AAAAAA;
+                        text-decoration: none;
+                        padding: 0.5rem;
+                        transition: color .3s;
+                        border: none;
+                        &:after {
+                            content: '';
+                            display: block;
+                            width: 0;
+                            height: 2px;
+                            background: #121212;
+                            transition: width .3s;
+                        }
+                        &:hover {
+                            color: #121212;
+                            transition: color .3s;
+                            &:after {
+                                width: 100%;
+                            }
+                        }
+                        &:focus{
+                            outline: 0;
+                        }
+                    }
+            }
+                .about-container__bio, .about-container__cv {
+                    &.show {
+                        max-height: 96%;
+                        overflow-y: scroll;
+                        display: block;
+                        font-family: 'Goudy Bookletter 1911', serif;
+                        ul {
+                            list-style-type: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+                    &.hide {
+                        max-height: 600px;
+                        overflow-y: scroll;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

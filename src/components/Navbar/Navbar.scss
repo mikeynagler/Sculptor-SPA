@@ -1,7 +1,4 @@
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     background: white;
     height: 15%;
@@ -18,7 +15,9 @@
             flex: 1.5;
             display: flex;
             align-items: center;
-            
+            font-family: 'Goudy Bookletter 1911', serif;
+            font-size: 26px;
+            letter-spacing: 0.8em;
             .navbar__link {
                 text-decoration: none;
                 color: #121212;
@@ -53,6 +52,7 @@
                     color: #AAAAAA;
                     text-decoration: none;
                     padding: 0.5rem;
+                    transition: color .3s;
                     &:after {
                         content: '';
                         display: block;
@@ -63,16 +63,23 @@
                     }
                     &:hover {
                         color: #121212;
+                        transition: color .3s;
                         &:after {
                             width: 100%;
                         }
                     }
-                    &:active {
-                        color: #BDBDBD;
+                    &.active {
+                        color: #121212;
                         &:after {
-                            background: #BDBDBD;
+                            content: '';
+                            display: block;
+                            width: 0;
+                            height: 2px;
+                            background: #121212;
+                            transition: width .3s;
+                            width: 100%;
+                            }
                         }
-                    }
                 }
             }
         }

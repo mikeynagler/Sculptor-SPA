@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Navbar.scss'
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton'
 const navbar = props => {
@@ -9,23 +9,23 @@ const navbar = props => {
                 <div>
                 <DrawerToggleButton click={props.onDrawerToggle}/>
                 </div>
-                <div className="navbar__logo"><Link className="navbar__link" to="/">Home</Link></div>
+                <div className="navbar__logo"><NavLink className="navbar__link"  activeClassName="active" to="/">TAMI MEIRI</NavLink></div>
                 <div className="navbar__navigation-items">
                     <ul>
                         <li>
-                            <Link className="navbar__link" to="/about">About</Link>
+                            <NavLink className="navbar__link" activeClassName="active" to="/about">About</NavLink>
                         </li>
                         <li>
-                            <Link className="navbar__link" to="/gallery">Gallery</Link>
+                            <NavLink className="navbar__link" activeClassName="active" to="/gallery">Gallery</NavLink>
                         </li>
                         <li>
-                            <Link className="navbar__link" to="/media">Media</Link>
+                            <NavLink className="navbar__link" activeClassName="active" to="/media">Media</NavLink>
                         </li>
                         <li>
-                            <Link className="navbar__link" to="/upcomingevents">Upcoming Events</Link>
+                            <NavLink className="navbar__link" activeClassName="active" to="/upcomingevents">Upcoming Events</NavLink>
                         </li>
                         <li>
-                            <Link className="navbar__link" to="/contact">Contact</Link>
+                            <NavLink className="navbar__link" activeClassName="active" to="/contact">Contact</NavLink>
                         </li>
                     </ul>
                 </div>
