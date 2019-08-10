@@ -11,6 +11,7 @@ import Contact from './components/MainComponents/Contact/Contact'
 import Gallery from './components/MainComponents/Gallery/Gallery'
 import Media from './components/MainComponents/Media/Media'
 
+
 class App extends React.Component {
   state = {
     drawerOpen: false
@@ -28,6 +29,7 @@ class App extends React.Component {
   onXClick = () => {
     this.setState({drawerOpen: false});
   }
+
   render() {
     let backdrop;
     if(this.state.drawerOpen){
